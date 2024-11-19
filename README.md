@@ -6,7 +6,7 @@
   
 🔹 I’m currently a student of **Master I** at **IT University**
   
-🔹 This is my portfolio **https://charles-elsy.vercel.app/**
+🔹 This is my portfolio **https://elsy-charles.vercel.app/**
 
 </td>
 </tr>
