@@ -61,7 +61,7 @@ Driven Full-Stack Developer with expertise in architecting and delivering scalab
   * Implemented Google Authentication for these platforms.
   * Built the Ketrika mobile app (React Native).
 
-* **Development Intern** – *BICI Andoharanofotsy*
+* **Development Intern** – *AZLink*
   **Jun – Sept 2023 (3 months)**
 
   * Pothole alert mobile app & admin back-office.
