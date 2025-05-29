@@ -52,7 +52,7 @@ Driven Full-Stack Developer with expertise in architecting and delivering scalab
   **May 2025 – Present**
 
   * Integrated single-page functionality within their Java framework.
-  * Developed B2B portal features for [b2b.mautourco.com](https://b2b.mautourco.com/).
+  * Developed frontend Mautourco B2B portal features for [b2b.mautourco.com](https://b2b.mautourco.com/).
 
 * **Full-Stack Developer** – *BICI Andoharanofotsy*
   **Sept 2023 – Jul 2024 (10 months)**
