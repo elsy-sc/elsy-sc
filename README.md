@@ -1,4 +1,4 @@
-<h1 align="center">CHARLES Elsy Soavita</b></h1>
+<h1 align="center">CHARLES Elsy</b></h1>
 <h3 align="center">Full-stack developer | Java / React / React Native / PostgreSQL </h3>
 <table align="center">
 <tr border="none">
