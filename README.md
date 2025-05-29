@@ -95,9 +95,9 @@ Driven Full-Stack Developer with expertise in architecting and delivering scalab
 
 ## 📫 Contact
 
-* 📧 [elsy.s.charles@gmail.com](mailto:elsy.s.charles@gmail.com)
-* 📞 +261 34 84 216 34
-* 📍 Antananarivo, Madagascar
+* 📧 <a href="mailto:elsy.s.charles@gmail.com" target="_blank">elsy.s.charles@gmail.com</a>
+* 📞 <a href="tel:+261348421634" target="_blank">+261 34 84 216 34</a> 
+* 📍 <a href="https://maps.app.goo.gl/z23xArdRD5pJarY8A" target="_blank">Andoharanofotsy, Antananarivo, Madagascar</a>
 
 ---
 
