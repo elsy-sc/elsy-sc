@@ -35,7 +35,6 @@ export const CONFIG = {
   
   // Features to enable/disable
   features: {
-    newYearCountdown: true,   // Show days until new year
-    lastUpdate: true          // Show last update date
+    todayDate: true           // Show today's date
   }
 };

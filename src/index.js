@@ -21,6 +21,18 @@ function getCurrentDate() {
 }
 
 /**
+ * Get simple today's date
+ */
+function getTodayDate() {
+  const now = new Date();
+  return now.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+
+/**
  * Calculate days until next new year
  */
 function getDaysUntilNewYear() {
@@ -54,26 +66,18 @@ function getBotSignature() {
  * Generate the new README content
  */
 async function generateReadme() {
-  const currentDate = getCurrentDate();
-  const newYearInfo = getDaysUntilNewYear();
-  const botSignature = getBotSignature();
+  const todayDate = getTodayDate();
   
   // Build sections based on configuration
   const sections = {
     tagline: CONFIG.profile.tagline.replace(/\s+/g, '%20').replace(/,/g, '%2C'),
-    lastUpdateSection: CONFIG.features.lastUpdate ? 
-      `**Last updated:** ${currentDate}` : '',
-    newYearCountdown: CONFIG.features.newYearCountdown ? 
-      `**${newYearInfo.days}** days until ${newYearInfo.year} 🎊` : '',
-    botSignature: botSignature
+    todayDate: CONFIG.features.todayDate ? todayDate : ''
   };
   
   // Replace placeholders in template
   let readmeContent = template
     .replace('{{TAGLINE}}', sections.tagline)
-    .replace('{{LAST_UPDATE_SECTION}}', sections.lastUpdateSection)
-    .replace('{{NEW_YEAR_COUNTDOWN}}', sections.newYearCountdown)
-    .replace('{{BOT_SIGNATURE}}', sections.botSignature);
+    .replace('{{TODAY_DATE}}', sections.todayDate);
   
   return readmeContent;
 }
@@ -109,10 +113,8 @@ async function main() {
     await writeReadme(readmeContent);
     
     console.log('\n📊 Update summary:');
-    console.log(`• Date: ${getCurrentDate()}`);
-    console.log(`• Days until new year: ${getDaysUntilNewYear().days}`);
-    console.log(`• Bot mood: ${CONFIG.bot.moods[new Date().getDay()]}`);
-    console.log(`• Features enabled: ${Object.entries(CONFIG.features).filter(([, enabled]) => enabled).map(([name]) => name).join(', ')}`);
+    console.log(`• Date: ${getTodayDate()}`);
+    console.log('• Simple and clean README updated!');
     
   } catch (error) {
     console.error('❌ Failed to generate README:', error);
