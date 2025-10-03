@@ -8,14 +8,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 /**
- * Get simple today's date
+ * Get simple today's date in Madagascar timezone (UTC+3)
  */
 function getTodayDate() {
   const now = new Date();
-  return now.toLocaleDateString('en-US', { 
+  // Convert to Madagascar time (UTC+3)
+  const madagascarTime = new Date(now.getTime() + (3 * 60 * 60 * 1000));
+  return madagascarTime.toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
-    day: 'numeric' 
+    day: 'numeric',
+    timeZone: 'UTC' // Use UTC since we already adjusted the time
   });
 }
 
