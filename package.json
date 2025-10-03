@@ -1,0 +1,21 @@
+{
+  "name": "elsy-sc-profile",
+  "version": "1.0.0",
+  "description": "Minimalist automated daily GitHub profile README generator",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "github",
+    "profile",
+    "readme",
+    "automation"
+  ],
+  "author": "Elsy Charles",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
