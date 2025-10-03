@@ -8,19 +8,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 /**
- * Get formatted current date
- */
-function getCurrentDate() {
-  const now = new Date();
-  return now.toLocaleDateString('en-US', { 
-    weekday: 'long', 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  });
-}
-
-/**
  * Get simple today's date
  */
 function getTodayDate() {
@@ -33,53 +20,16 @@ function getTodayDate() {
 }
 
 /**
- * Calculate days until next new year
- */
-function getDaysUntilNewYear() {
-  const now = new Date();
-  const nextYear = now.getFullYear() + 1;
-  const newYearDate = new Date(nextYear, 0, 1);
-  
-  const msPerDay = 1000 * 60 * 60 * 24;
-  const diffMs = newYearDate.getTime() - now.getTime();
-  const daysLeft = Math.ceil(diffMs / msPerDay);
-  
-  return {
-    days: daysLeft,
-    year: nextYear
-  };
-}
-
-/**
- * Generate bot signature with mood
- */
-function getBotSignature() {
-  const now = new Date();
-  const dayOfWeek = now.getDay();
-  const mood = CONFIG.bot.moods[dayOfWeek];
-  const emoji = CONFIG.bot.moodEmojis[mood];
-  
-  return `🤖 This README.md is updated with ${mood} ${emoji} by ${CONFIG.bot.name}`;
-}
-
-/**
  * Generate the new README content
  */
-async function generateReadme() {
+function generateReadme() {
   const todayDate = getTodayDate();
-  
-  // Build sections based on configuration
-  const sections = {
-    tagline: CONFIG.profile.tagline.replace(/\s+/g, '%20').replace(/,/g, '%2C'),
-    todayDate: CONFIG.features.todayDate ? todayDate : ''
-  };
+  const tagline = CONFIG.profile.tagline.replace(/\s+/g, '%20').replace(/,/g, '%2C');
   
   // Replace placeholders in template
-  let readmeContent = template
-    .replace('{{TAGLINE}}', sections.tagline)
-    .replace('{{TODAY_DATE}}', sections.todayDate);
-  
-  return readmeContent;
+  return template
+    .replace('{{TAGLINE}}', tagline)
+    .replace('{{TODAY_DATE}}', todayDate);
 }
 
 /**
@@ -102,19 +52,11 @@ async function writeReadme(content) {
 async function main() {
   try {
     console.log('🚀 Generating README.md...');
-    console.log('📋 Configuration: Elsy CHARLES profile');
     
-    const readmeContent = await generateReadme();
-    console.log('\n📝 Generated content preview:');
-    console.log('─'.repeat(50));
-    console.log(readmeContent.slice(0, 200) + '...');
-    console.log('─'.repeat(50));
-    
+    const readmeContent = generateReadme();
     await writeReadme(readmeContent);
     
-    console.log('\n📊 Update summary:');
-    console.log(`• Date: ${getTodayDate()}`);
-    console.log('• Simple and clean README updated!');
+    console.log(`✅ README updated with date: ${getTodayDate()}`);
     
   } catch (error) {
     console.error('❌ Failed to generate README:', error);
@@ -126,5 +68,3 @@ async function main() {
 if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
-
-export { generateReadme, getCurrentDate, getDaysUntilNewYear, getBotSignature };
