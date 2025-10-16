@@ -2,8 +2,8 @@ name: 'Auto Update README'
 
 on:
   schedule:
-    # Runs daily at 21:00 UTC (00:00 Madagascar time)
-    - cron: '0 21 * * *'
+    # Runs daily at 04:30 UTC (07:30 Madagascar time)
+    - cron: '30 4 * * *'
   workflow_dispatch: # Allows manual trigger
   push:
     branches: [ main ]
