@@ -8,22 +8,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 /**
- * Get today's date and time in Madagascar timezone (UTC+3) with format YYYY-MM-DD HH:MM:SS
+ * Get simple today's date in Madagascar timezone (UTC+3)
  */
 function getTodayDate() {
   const now = new Date();
   // Convert to Madagascar time (UTC+3)
   const madagascarTime = new Date(now.getTime() + (3 * 60 * 60 * 1000));
-  
-  // Format as YYYY-MM-DD HH:MM:SS
-  const year = madagascarTime.getUTCFullYear();
-  const month = String(madagascarTime.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(madagascarTime.getUTCDate()).padStart(2, '0');
-  const hours = String(madagascarTime.getUTCHours()).padStart(2, '0');
-  const minutes = String(madagascarTime.getUTCMinutes()).padStart(2, '0');
-  const seconds = String(madagascarTime.getUTCSeconds()).padStart(2, '0');
-  
-  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  return madagascarTime.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    timeZone: 'UTC' // Use UTC since we already adjusted the time
+  });
 }
 
 /**
