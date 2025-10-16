@@ -43,12 +43,12 @@ jobs:
           
       - name: 💾 Commit and push changes
         if: steps.verify-changed-files.outputs.changed == 'true'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add README.md
-          git commit -m "🤖 Auto-update README.md - $(date +'%Y-%m-%d')"
-          git push
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Elsy CHARLES
+          author_email: elsy.s.charles@gmail.com
+          message: '🤖 Auto-update README.md - ${{ github.event.repository.updated_at }}'
+          add: 'README.md'
           
       - name: ✅ Success notification
         if: steps.verify-changed-files.outputs.changed == 'true'
