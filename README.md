@@ -3,5 +3,5 @@
 </div>
 
 <div align="center">
-<sub>December 1, 2025</sub>
+<sub>December 2, 2025</sub>
 </div>
